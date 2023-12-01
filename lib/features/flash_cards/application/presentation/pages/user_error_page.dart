@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:right/application/presentation/widgets/remove_glow_effect.dart';
+import 'package:right/features/auth/application/presentation/widgets/remove_glow_effect.dart';
 import 'package:right/utils/const_colors.dart';
 
 class UserSupport extends StatelessWidget {

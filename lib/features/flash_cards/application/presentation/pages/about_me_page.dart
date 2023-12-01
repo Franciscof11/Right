@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:right/application/presentation/Widgets/about_me_text_button.dart';
-import 'package:right/application/presentation/Widgets/heat_map.dart';
-import 'package:right/application/presentation/widgets/remove_glow_effect.dart';
+import 'package:right/features/auth/application/presentation/widgets/about_me_text_button.dart';
+import 'package:right/features/auth/application/presentation/widgets/heat_map.dart';
+import 'package:right/features/auth/application/presentation/widgets/remove_glow_effect.dart';
 import 'package:right/utils/const_colors.dart';
 
 class AboutMePage extends StatefulWidget {

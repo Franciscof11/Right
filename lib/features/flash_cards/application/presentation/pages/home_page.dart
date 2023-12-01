@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:right/application/presentation/widgets/card_collection.dart';
-import 'package:right/application/presentation/widgets/drawer_home.dart';
+import 'package:right/features/auth/application/presentation/widgets/card_collection.dart';
+import 'package:right/features/auth/application/presentation/widgets/drawer_home.dart';
 import 'package:right/utils/const_colors.dart';
 
 class HomePage extends StatefulWidget {

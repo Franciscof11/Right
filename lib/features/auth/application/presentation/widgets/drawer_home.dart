@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../utils/const_colors.dart';
+import '../../../../../utils/const_colors.dart';
 
 class DrawerHome extends StatelessWidget {
   const DrawerHome({super.key});
