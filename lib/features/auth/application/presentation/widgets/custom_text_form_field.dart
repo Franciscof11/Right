@@ -1,23 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:right/utils/const_colors.dart';
 
-class CustomTextField extends StatefulWidget {
+enum FormTypes {
+  email,
+  password,
+  birthDate,
+  generic,
+}
+
+class CustomTextFormField extends StatefulWidget {
   final String label;
-  final Widget? prefixIcon;
+  final Icon? prefixIcon;
   final bool isSecret;
-  final TextEditingController? controller;
-  const CustomTextField({
+  final TextEditingController controller;
+  final FormTypes type;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? mask;
+  final bool? disable;
+  const CustomTextFormField({
     super.key,
     required this.label,
     this.prefixIcon,
     this.isSecret = false,
-    this.controller,
+    required this.controller,
+    required this.type,
+    this.mask,
+    this.keyboardType,
+    this.disable,
   });
 
   @override
-  State<CustomTextField> createState() => _CustomTextFieldState();
+  State<CustomTextFormField> createState() => _CustomTextFormFieldState();
 }
 
-class _CustomTextFieldState extends State<CustomTextField> {
+class _CustomTextFormFieldState extends State<CustomTextFormField> {
   bool obscureText = false;
 
   @override
@@ -29,36 +47,111 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: widget.controller,
+      enabled: widget.disable == true ? false : true,
+      keyboardType: widget.keyboardType,
+      inputFormatters: widget.mask,
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
+      controller: widget.controller,
       obscureText: obscureText,
-      style: const TextStyle(fontSize: 16),
       validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Campo Invalido!';
+        switch (widget.type) {
+          case FormTypes.email:
+            if (value == null || value.isEmpty) {
+              return 'Campo obrigatório!';
+            }
+            if (!widget.controller.text.contains('@') ||
+                !widget.controller.text.contains('.com')) {
+              return 'E-mail inválido!';
+            }
+            return null;
+
+          case FormTypes.password:
+            if (value == null || value.isEmpty) {
+              return 'Campo obrigatório!';
+            }
+            return null;
+
+          case FormTypes.birthDate:
+            return null;
+
+          case FormTypes.generic:
+            if (value == null || value.isEmpty) {
+              return 'Campo obrigatório!';
+            }
+            return null;
         }
-        return null;
       },
+      cursorColor: LightColors().primary,
+      style: GoogleFonts.rubik(
+        color: Colors.black,
+        fontSize: 16,
+        fontWeight: FontWeight.w500,
+      ),
       decoration: InputDecoration(
+        fillColor: Colors.white,
+        filled: true,
+        suffixIconColor: LightColors().primary,
         labelText: widget.label,
-        suffixIcon: widget.isSecret
-            ? IconButton(
-                onPressed: () {
-                  setState(() {
-                    obscureText = !obscureText;
-                  });
-                },
-                icon:
-                    Icon(obscureText ? Icons.visibility : Icons.visibility_off),
-              )
-            : null,
-        floatingLabelStyle: const TextStyle(fontSize: 20),
-        prefixIcon: widget.prefixIcon,
-        errorBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: Colors.purple[800]!),
+        labelStyle: GoogleFonts.rubik(
+          color: Colors.grey,
+          fontSize: 16,
+          fontWeight: FontWeight.w500,
         ),
+        suffixIcon: widget.type == FormTypes.birthDate
+            ? const Icon(
+                Icons.calendar_month_outlined,
+                size: 30,
+              )
+            : widget.isSecret
+                ? IconButton(
+                    onPressed: () {
+                      setState(() {
+                        obscureText = !obscureText;
+                      });
+                    },
+                    icon: Icon(
+                        obscureText ? Icons.visibility : Icons.visibility_off),
+                  )
+                : null,
+
+        prefixIcon: widget.prefixIcon,
+        //
+        // Borders
+        //
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(18),
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.grey,
+            width: 2,
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: LightColors().primary,
+            width: 3,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: LightColors().primary,
+            width: 1.5,
+          ),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: BorderSide(
+            color: LightColors().primary,
+            width: 0.5,
+          ),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+          borderSide: const BorderSide(
+            color: Colors.red,
+            width: 2,
+          ),
         ),
       ),
     );
