@@ -82,7 +82,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         }
       },
       cursorColor: LightColors().primary,
-      style: GoogleFonts.rubik(
+      style: GoogleFonts.raleway(
         color: Colors.black,
         fontSize: 16,
         fontWeight: FontWeight.w500,
@@ -92,8 +92,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         filled: true,
         suffixIconColor: LightColors().primary,
         labelText: widget.label,
-        labelStyle: GoogleFonts.rubik(
-          color: Colors.grey,
+        labelStyle: GoogleFonts.raleway(
+          color: Colors.black,
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),
@@ -110,7 +110,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                       });
                     },
                     icon: Icon(
-                        obscureText ? Icons.visibility : Icons.visibility_off),
+                      obscureText ? Icons.visibility : Icons.visibility_off,
+                    ),
                   )
                 : null,
 

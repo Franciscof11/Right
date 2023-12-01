@@ -49,7 +49,7 @@ class _SignInPageState extends State<SignInPage> {
                         Text.rich(
                           TextSpan(
                               text: 'Insira seu login ',
-                              style: GoogleFonts.lato(
+                              style: GoogleFonts.raleway(
                                 textStyle: TextStyle(
                                   color: LightColors().primary,
                                   fontSize: 24,
@@ -74,8 +74,8 @@ class _SignInPageState extends State<SignInPage> {
                             children: [
                               CustomTextFormField(
                                 controller: TextEditingController(),
-                                label: 'Usuário',
-                                type: FormTypes.generic,
+                                label: 'E-mail',
+                                type: FormTypes.email,
                               ),
                               const SizedBox(
                                 height: 20,
@@ -84,6 +84,7 @@ class _SignInPageState extends State<SignInPage> {
                                 controller: TextEditingController(),
                                 label: 'Senha',
                                 type: FormTypes.password,
+                                isSecret: true,
                               ),
                               const SizedBox(
                                 height: 14,
@@ -139,7 +140,7 @@ class _SignInPageState extends State<SignInPage> {
                                 onTap: () {},
                                 child: Text(
                                   'Esqueceu seu usuário?',
-                                  style: GoogleFonts.inter(
+                                  style: GoogleFonts.raleway(
                                     height: 0,
                                     color: LightColors().onPrimaryContainer,
                                     fontSize: 14,
@@ -152,7 +153,7 @@ class _SignInPageState extends State<SignInPage> {
                                 onTap: () {},
                                 child: Text(
                                   'Criar Conta',
-                                  style: GoogleFonts.inter(
+                                  style: GoogleFonts.raleway(
                                     height: 1,
                                     color: LightColors().primary,
                                     fontSize: 14,
