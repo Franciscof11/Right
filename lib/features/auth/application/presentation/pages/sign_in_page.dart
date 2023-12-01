@@ -107,7 +107,33 @@ class _SignInPageState extends State<SignInPage> {
                                 ),
                               ),
                               const SizedBox(
-                                height: 30,
+                                height: 25,
+                              ),
+                              Text(
+                                'Não possui conta?',
+                                style: GoogleFonts.raleway(
+                                  height: 0,
+                                  color: LightColors().onPrimaryContainer,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w800,
+                                ),
+                              ),
+                              const SizedBox(height: 10),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.pushNamed(context, '/SignUpPage');
+                                },
+                                child: Text(
+                                  'Cadastre-se',
+                                  style: GoogleFonts.raleway(
+                                    color: LightColors().primary,
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.w800,
+                                  ),
+                                ),
+                              ),
+                              const SizedBox(
+                                height: 32,
                               ),
                               Align(
                                 alignment: Alignment.center,
@@ -119,45 +145,18 @@ class _SignInPageState extends State<SignInPage> {
                                     ),
                                     padding: const EdgeInsets.symmetric(
                                       vertical: 15,
-                                      horizontal: 60,
+                                      horizontal: 80,
                                     ),
                                     backgroundColor:
                                         LightColors().onPrimaryContainer,
                                   ),
                                   child: Text(
                                     'Entrar',
-                                    style: TextStyle(
-                                      fontSize: 22,
-                                      color: LightColors().primaryContainer,
+                                    style: GoogleFonts.raleway(
+                                      color: Colors.white,
+                                      fontSize: 26,
+                                      fontWeight: FontWeight.w600,
                                     ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 40,
-                              ),
-                              GestureDetector(
-                                onTap: () {},
-                                child: Text(
-                                  'Esqueceu seu usuário?',
-                                  style: GoogleFonts.raleway(
-                                    height: 0,
-                                    color: LightColors().onPrimaryContainer,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w800,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-                              GestureDetector(
-                                onTap: () {},
-                                child: Text(
-                                  'Criar Conta',
-                                  style: GoogleFonts.raleway(
-                                    height: 1,
-                                    color: LightColors().primary,
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w800,
                                   ),
                                 ),
                               ),

@@ -95,7 +95,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         labelStyle: GoogleFonts.raleway(
           color: Colors.black,
           fontSize: 16,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.w700,
         ),
         suffixIcon: widget.type == FormTypes.birthDate
             ? const Icon(
