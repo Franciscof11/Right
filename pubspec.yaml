@@ -7,6 +7,7 @@ environment:
   sdk: ">=3.2.0 <4.0.0"
 
 dependencies:
+  device_preview: ^1.1.0
   flutter:
     sdk: flutter
   flutter_heatmap_calendar: ^1.0.5
