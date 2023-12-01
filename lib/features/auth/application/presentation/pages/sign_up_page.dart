@@ -143,7 +143,9 @@ class _SignUpPageState extends State<SignUpPage> {
                 Align(
                   alignment: Alignment.center,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/SucessfulRegistration');
+                    },
                     style: ElevatedButton.styleFrom(
                       shape: ContinuousRectangleBorder(
                         borderRadius: BorderRadius.circular(20),
