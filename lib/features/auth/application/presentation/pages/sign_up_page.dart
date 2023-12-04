@@ -21,7 +21,7 @@ class _SignUpPageState extends State<SignUpPage> {
           child: Column(
             children: [
               const SizedBox(
-                height: 40,
+                height: 45,
               ),
               Row(
                 children: [

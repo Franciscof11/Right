@@ -159,7 +159,7 @@ class _SignInPageState extends State<SignInPage> {
                                           message: 'Credenciais incorretas',
                                           type: ToastType.error,
                                           context: context,
-                                          marginRight: 100,
+                                          marginRight: 115,
                                         );
                                       }
                                     },
