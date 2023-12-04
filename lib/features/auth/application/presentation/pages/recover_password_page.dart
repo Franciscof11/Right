@@ -20,7 +20,7 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
         child: Column(
           children: [
             Material(
-              elevation: 20,
+              elevation: 35,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50),
@@ -64,7 +64,7 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
                         ],
                       ),
                       const SizedBox(
-                        height: 8,
+                        height: 20,
                       ),
                       Text.rich(
                         TextSpan(
@@ -88,15 +88,15 @@ class _RecoverPasswordPageState extends State<RecoverPasswordPage> {
                         ),
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 30,
                       ),
                       SvgPicture.asset(
                         'assets/imgs/forgot_password.svg',
                         width: MediaQuery.of(context).size.width,
-                        height: 220,
+                        height: 240,
                       ),
                       const SizedBox(
-                        height: 10,
+                        height: 25,
                       ),
                       Align(
                         alignment: Alignment.centerLeft,

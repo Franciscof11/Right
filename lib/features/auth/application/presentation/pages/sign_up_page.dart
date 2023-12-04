@@ -28,7 +28,7 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Column(
           children: [
             Material(
-              elevation: 20,
+              elevation: 35,
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.circular(50),
                 bottomRight: Radius.circular(50),

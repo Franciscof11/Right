@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:right/features/auth/application/presentation/widgets/custom_text_form_field.dart';
 import 'package:right/utils/const_colors.dart';
@@ -22,37 +22,32 @@ class _SignInPageState extends State<SignInPage> {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        backgroundColor: LightColors().primaryContainer,
+        backgroundColor: LightColors().primary,
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 22),
-            child: Form(
-              key: formKey,
-              child: Column(
-                children: [
-                  const SizedBox(
-                    height: 60,
+          child: Column(
+            children: [
+              Material(
+                elevation: 35,
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(50),
+                  bottomRight: Radius.circular(50),
+                ),
+                child: Container(
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(50),
+                      bottomRight: Radius.circular(50),
+                    ),
                   ),
-                  SvgPicture.asset(
-                    'assets/imgs/logo.svg',
-                    width: 90,
-                    height: 90,
-                  ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                  Material(
-                    elevation: 12,
-                    borderRadius: BorderRadius.circular(12),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        color: Colors.white,
-                      ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    child: Form(
+                      key: formKey,
                       child: Column(
                         children: [
                           const SizedBox(
-                            height: 35,
+                            height: 45,
                           ),
                           Text.rich(
                             TextSpan(
@@ -60,7 +55,7 @@ class _SignInPageState extends State<SignInPage> {
                                 style: GoogleFonts.raleway(
                                   textStyle: TextStyle(
                                     color: LightColors().primary,
-                                    fontSize: 24,
+                                    fontSize: 34,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
@@ -73,7 +68,7 @@ class _SignInPageState extends State<SignInPage> {
                                 ]),
                           ),
                           const SizedBox(
-                            height: 35,
+                            height: 40,
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -118,7 +113,7 @@ class _SignInPageState extends State<SignInPage> {
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 25,
+                                  height: 40,
                                 ),
                                 Text(
                                   'Não possui conta?',
@@ -144,7 +139,7 @@ class _SignInPageState extends State<SignInPage> {
                                   ),
                                 ),
                                 const SizedBox(
-                                  height: 32,
+                                  height: 50,
                                 ),
                                 Align(
                                   alignment: Alignment.center,
@@ -187,17 +182,24 @@ class _SignInPageState extends State<SignInPage> {
                                 const SizedBox(height: 35),
                               ],
                             ),
-                          )
+                          ),
+                          const SizedBox(
+                            height: 35,
+                          ),
                         ],
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 50,
-                  ),
-                ],
+                ),
               ),
-            ),
+              const SizedBox(height: 40),
+              SvgPicture.asset(
+                'assets/imgs/logo_branca.svg',
+                width: 80,
+                height: 80,
+              ),
+              const SizedBox(height: 40),
+            ],
           ),
         ),
       ),
