@@ -96,7 +96,10 @@ class _SignInPageState extends State<SignInPage> {
                                   child: Align(
                                     alignment: Alignment.centerRight,
                                     child: GestureDetector(
-                                      onTap: () {},
+                                      onTap: () {
+                                        Navigator.pushNamed(
+                                            context, '/RecoverPasswordPage');
+                                      },
                                       child: Text(
                                         'Esqueceu a senha?',
                                         style: GoogleFonts.raleway(
