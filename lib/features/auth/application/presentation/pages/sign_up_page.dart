@@ -151,7 +151,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           type: FormTypes.password,
                           isSecret: true,
                         ),
-                        const SizedBox(height: 50),
+                        const SizedBox(height: 55),
                         Align(
                           alignment: Alignment.center,
                           child: ElevatedButton(
@@ -194,14 +194,14 @@ class _SignUpPageState extends State<SignUpPage> {
                             ),
                           ),
                         ),
-                        const SizedBox(height: 40),
+                        const SizedBox(height: 50),
                       ],
                     ),
                   ),
                 ),
               ),
             ),
-            const SizedBox(height: 25),
+            const SizedBox(height: 30),
             SvgPicture.asset(
               'assets/imgs/logo_branca.svg',
               width: 60,
