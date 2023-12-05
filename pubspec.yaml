@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_heatmap_calendar: ^1.0.5
+  flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.3.6
   flutter_staggered_animations: ^1.1.1
   flutter_svg: ^2.0.9
   google_fonts: ^6.1.0
@@ -29,3 +31,16 @@ flutter:
     - assets/
     - assets/icons/
     - assets/imgs/
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/imgs/icon_right_png.png"
+  adaptive_icon_background: "#D4E3FE"
+
+flutter_native_splash:
+  color: "#D4E3FE"
+
+  android_12:
+    color: "#D4E3FE"
