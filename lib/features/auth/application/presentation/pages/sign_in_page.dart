@@ -41,13 +41,13 @@ class _SignInPageState extends State<SignInPage> {
                     ),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 22),
+                    padding: const EdgeInsets.symmetric(horizontal: 14),
                     child: Form(
                       key: formKey,
                       child: Column(
                         children: [
                           const SizedBox(
-                            height: 45,
+                            height: 60,
                           ),
                           Text.rich(
                             TextSpan(
@@ -55,7 +55,7 @@ class _SignInPageState extends State<SignInPage> {
                                 style: GoogleFonts.raleway(
                                   textStyle: TextStyle(
                                     color: LightColors().primary,
-                                    fontSize: 34,
+                                    fontSize: 32,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
