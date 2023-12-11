@@ -3,7 +3,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:right/features/auth/application/presentation/widgets/custom_text_form_field.dart';
 import 'package:right/utils/const_colors.dart';
-import 'package:right/utils/toast.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -150,12 +149,14 @@ class _SignInPageState extends State<SignInPage> {
                                               false;
 
                                       if (validForm) {
-                                        showToast(
+                                        Navigator.pushNamed(
+                                            context, '/HomePage');
+                                        /*  showToast(
                                           message: 'Credenciais incorretas',
                                           type: ToastType.error,
                                           context: context,
                                           marginRight: 115,
-                                        );
+                                        ); */
                                       }
                                     },
                                     style: ElevatedButton.styleFrom(

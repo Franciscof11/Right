@@ -24,173 +24,184 @@ class _CardCollectionState extends State<CardCollection> {
     double widthDisp = MediaQuery.of(context).size.width;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20),
-      child: Container(
-        width: widthDisp,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.grey,
-                blurRadius: 4,
-                spreadRadius: 2,
-                offset: Offset(0, 4),
-              )
-            ],
-            borderRadius: BorderRadius.circular(12)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
-          child: Row(
-            children: [
-              SizedBox(
-                width: widthDisp * 0.68,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+      padding: const EdgeInsets.symmetric(vertical: 18),
+      child: Material(
+        elevation: 20,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(12),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              stops: const [0.02, 0.02],
+              colors: [LightColors().primary, Colors.white],
+            ),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(12),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 18),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const SizedBox(height: 10),
-                    SizedBox(
-                      width: widthDisp,
-                      child: Text(
-                        widget.collectionName,
-                        style: GoogleFonts.inter(
-                          color: LightColors().onPrimaryContainer,
-                          fontSize: 26,
-                          fontWeight: FontWeight.w700,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: widthDisp * 0.46),
-                    const SizedBox(
-                      height: 5,
-                    ),
-                    //
-                    //Erros e Acertos
-                    //
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'acertos',
-                              style: GoogleFonts.roboto(
-                                color: LightColors().onPrimaryContainer,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  '$numb3%',
-                                  style: GoogleFonts.roboto(
-                                    color: Colors.grey,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w700,
-                                  ),
-                                ),
-                                const Icon(
-                                  Icons.arrow_circle_up_rounded,
-                                  size: 15,
-                                  color: Colors.green,
-                                ),
-                              ],
-                            )
-                            //
-                          ],
+                        const SizedBox(height: 10),
+                        Text(
+                          widget.collectionName,
+                          style: GoogleFonts.inter(
+                            color: LightColors().onPrimaryContainer,
+                            fontSize: 26,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                        const SizedBox(width: 10),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              'erros',
-                              style: GoogleFonts.roboto(
-                                color: LightColors().onPrimaryContainer,
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                              ),
-                            ),
                             Row(
                               children: [
-                                Text(
-                                  '$numb4%',
-                                  style: GoogleFonts.roboto(
-                                    color: Colors.grey,
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.w700,
-                                  ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'acertos',
+                                      style: GoogleFonts.roboto(
+                                        color: LightColors().onPrimaryContainer,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          '$numb3%',
+                                          style: GoogleFonts.roboto(
+                                            color: Colors.grey,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                        const Icon(
+                                          Icons.arrow_circle_up_rounded,
+                                          size: 15,
+                                          color: Colors.green,
+                                        ),
+                                      ],
+                                    )
+                                    //
+                                  ],
                                 ),
-                                const Icon(
-                                  Icons.arrow_circle_down_rounded,
-                                  size: 15,
-                                  color: Colors.red,
+                                const SizedBox(width: 10),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'erros',
+                                      style: GoogleFonts.roboto(
+                                        color: LightColors().onPrimaryContainer,
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.w700,
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          '$numb4%',
+                                          style: GoogleFonts.roboto(
+                                            color: Colors.grey,
+                                            fontSize: 12,
+                                            fontWeight: FontWeight.w800,
+                                          ),
+                                        ),
+                                        const Icon(
+                                          Icons.arrow_circle_down_rounded,
+                                          size: 15,
+                                          color: Colors.red,
+                                        ),
+                                      ],
+                                    ),
+                                    //
+                                  ],
                                 ),
                               ],
-                            )
-                            //
+                            ),
                           ],
                         ),
                       ],
                     ),
-                    //
-                    //
-                    //
-
-                    Align(
-                      alignment: Alignment.centerRight,
-                      child: Text(
-                        '$numb2 Dias de prática',
-                        style: GoogleFonts.roboto(
-                          color: Colors.grey,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                        ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                favorite = !favorite;
+                              });
+                            },
+                            child: Icon(
+                              favorite == true
+                                  ? Icons.star
+                                  : Icons.star_outline,
+                              color: LightColors().primary,
+                              size: 32,
+                            ),
+                          ),
+                          const SizedBox(height: 14),
+                          const Icon(Icons.more_vert),
+                        ],
                       ),
-                    ),
-                    LinearPercentIndicator(
-                      barRadius: const Radius.circular(10),
-                      animation: true,
-                      animationDuration: 1900,
-                      trailing: Text(
-                        '$numb%',
-                        style: const TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.normal,
-                            color: Colors.black),
-                      ),
-                      width: widthDisp * 0.6,
-                      lineHeight: 4,
-                      percent: percent,
-                      backgroundColor: LightColors().primaryContainer,
-                      progressColor: LightColors().primary,
-                    ),
-                    const SizedBox(
-                      height: 10,
                     ),
                   ],
                 ),
-              ),
-              Expanded(
-                child: Column(
-                  children: [
-                    IconButton(
-                        onPressed: () {
-                          setState(() {
-                            favorite = !favorite;
-                          });
-                        },
-                        icon: Icon(
-                          favorite == true ? Icons.star : Icons.star_outline,
-                          color: LightColors().primary,
-                          size: 32,
-                        )),
-                    const SizedBox(height: 18),
-                    const Icon(Icons.more_vert)
-                  ],
+                const SizedBox(
+                  height: 10,
                 ),
-              )
-            ],
+                //
+                //Erros e Acertos
+                //
+                Align(
+                  alignment: Alignment.bottomRight,
+                  child: Text(
+                    'Última tentativa',
+                    style: GoogleFonts.inter(
+                      color: Colors.grey,
+                      fontSize: 13,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+                LinearPercentIndicator(
+                  barRadius: const Radius.circular(10),
+                  animation: true,
+                  animationDuration: 1900,
+                  trailing: Padding(
+                    padding: const EdgeInsets.only(left: 6, bottom: 8),
+                    child: Text(
+                      '$numb/12',
+                      style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                        color: LightColors().onPrimaryContainer,
+                      ),
+                    ),
+                  ),
+                  lineHeight: 6,
+                  percent: percent,
+                  backgroundColor: LightColors().primaryContainer,
+                  progressColor: LightColors().primary,
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:right/features/auth/application/presentation/widgets/card_collection.dart';
 import 'package:right/features/auth/application/presentation/widgets/drawer_home.dart';
+import 'package:right/features/flash_cards/application/presentation/widgets/bottom_navigation_bar.dart';
 import 'package:right/utils/const_colors.dart';
 
 class HomePage extends StatefulWidget {
@@ -28,6 +29,8 @@ class _HomePageState extends State<HomePage> {
   bool darkMode = false;
   bool boxValue = false;
 
+  get label => null;
+
   @override
   Widget build(BuildContext context) {
     double widthDisp = MediaQuery.of(context).size.width;
@@ -38,6 +41,23 @@ class _HomePageState extends State<HomePage> {
     GlobalKey<ScaffoldState> scaffoldKey = GlobalKey<ScaffoldState>();
 
     return Scaffold(
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(right: 8, bottom: 6),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.all(15),
+            backgroundColor: LightColors().primary,
+            shape: const CircleBorder(),
+          ),
+          onPressed: () {},
+          child: Icon(
+            Icons.add,
+            color: LightColors().primaryContainer,
+            size: 32,
+          ),
+        ),
+      ),
+      bottomNavigationBar: const BottomNavBar(),
       drawer: const DrawerHome(),
       drawerEnableOpenDragGesture: false,
       key: scaffoldKey,
@@ -45,50 +65,53 @@ class _HomePageState extends State<HomePage> {
       body: SafeArea(
         child: Column(
           children: [
-            const SizedBox(height: 20),
             //
             //App Bar
             //
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      scaffoldKey.currentState?.openDrawer();
-                    },
-                    child: SvgPicture.asset(
-                      'assets/icons/icon_drawer.svg',
-                      width: 30,
-                      height: 30,
-                      color: darkMode == true ? Colors.white : Colors.black,
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Text.rich(
-                    TextSpan(
-                        text: 'Olá, ',
-                        style: GoogleFonts.inter(
-                          color: darkMode == true
-                              ? DarkColors().primary
-                              : DarkColors().onPrimary,
-                          fontSize: 26,
-                          fontWeight: FontWeight.w700,
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          scaffoldKey.currentState?.openDrawer();
+                        },
+                        child: SvgPicture.asset(
+                          'assets/icons/icon_drawer.svg',
+                          width: 30,
+                          height: 30,
+                          color: darkMode == true ? Colors.white : Colors.black,
                         ),
-                        children: [
-                          TextSpan(
-                            text: 'CardBoy!',
+                      ),
+                      const SizedBox(width: 16),
+                      Text.rich(
+                        TextSpan(
+                            text: 'Olá, ',
                             style: GoogleFonts.inter(
                               color: darkMode == true
-                                  ? DarkColors().onPrimaryContainer
-                                  : DarkColors().surfaceVariant,
-                              fontSize: 26,
+                                  ? DarkColors().primary
+                                  : DarkColors().onPrimary,
+                              fontSize: 28,
                               fontWeight: FontWeight.w700,
                             ),
-                          )
-                        ]),
+                            children: [
+                              TextSpan(
+                                text: 'CardBoy!',
+                                style: GoogleFonts.inter(
+                                  color: darkMode == true
+                                      ? DarkColors().onPrimaryContainer
+                                      : DarkColors().surfaceVariant,
+                                  fontSize: 28,
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              )
+                            ]),
+                      ),
+                    ],
                   ),
-                  SizedBox(width: widthDisp * 0.2),
                   GestureDetector(
                     child: Container(
                       width: 55,
@@ -129,22 +152,22 @@ class _HomePageState extends State<HomePage> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Meus Cartões',
+                    'Minhas Coleções',
                     style: GoogleFonts.inter(
                       color: darkMode == true
                           ? DarkColors().primary
                           : LightColors().primary,
-                      fontSize: 35,
+                      fontSize: 28,
                       fontWeight: FontWeight.w700,
                     ),
                   ),
-                  SizedBox(width: widthDisp * 0.16),
                   IconButton(
                       onPressed: () {},
                       icon: Icon(
-                        Icons.filter_list,
+                        Icons.search_rounded,
                         color: Colors.grey.shade600,
                         size: 30,
                       ))
@@ -156,10 +179,9 @@ class _HomePageState extends State<HomePage> {
             //Collections
             //
             const SizedBox(height: 5),
-            SizedBox(
-              width: widthDisp,
-              height: heightDisp * 0.682,
+            Expanded(
               child: RefreshIndicator(
+                color: LightColors().primary,
                 onRefresh: () async {
                   // Replace this delay with the code to be executed during refresh
                   // and return a Future when code finishs execution.
@@ -186,7 +208,8 @@ class _HomePageState extends State<HomePage> {
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20),
                               child: CardCollection(
-                                  collectionName: CollectionNames[index]),
+                                collectionName: CollectionNames[index],
+                              ),
                             ),
                           ),
                         ),

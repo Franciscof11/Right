@@ -4,7 +4,7 @@ import 'package:right/utils/routes.dart';
 
 void main() => runApp(
       DevicePreview(
-        enabled: false,
+        enabled: true,
         builder: (context) => const MainApp(), // Wrap your app
       ),
     );
