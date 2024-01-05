@@ -11,7 +11,7 @@ class DrawerHome extends StatelessWidget {
   Widget build(BuildContext context) {
     double widthDisp = MediaQuery.of(context).size.width;
     return Container(
-      width: widthDisp * 0.8,
+      width: widthDisp * 0.7,
       decoration: const BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.only(
@@ -25,15 +25,9 @@ class DrawerHome extends StatelessWidget {
           ///
           /// User Card
           ///
-          Container(
-            decoration: BoxDecoration(
-                color: LightColors().primary,
-                borderRadius: const BorderRadius.only(
-                  bottomLeft: Radius.circular(30),
-                  bottomRight: Radius.circular(30),
-                )),
+          SafeArea(
             child: Padding(
-              padding: const EdgeInsets.only(left: 26, top: 26, bottom: 20),
+              padding: const EdgeInsets.only(left: 26, top: 12, bottom: 20),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -42,10 +36,10 @@ class DrawerHome extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Container(
-                        width: 130,
-                        height: 130,
+                        width: 150,
+                        height: 150,
                         decoration: BoxDecoration(
-                          color: LightColors().primaryContainer,
+                          color: LightColors().primary,
                           shape: BoxShape.circle,
                         ),
                         padding: const EdgeInsets.all(12),
@@ -73,26 +67,19 @@ class DrawerHome extends StatelessWidget {
                       Text(
                         'Lebron James',
                         style: GoogleFonts.inter(
-                          color: LightColors().onPrimary,
+                          color: LightColors().primary,
                           fontSize: 28,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
                       const SizedBox(height: 4),
-                      Text(
-                        'Pai do Curry',
-                        style: GoogleFonts.roboto(
-                          color: DarkColors().primary,
-                          fontSize: 20,
-                        ),
-                      ),
                     ],
                   ),
                   GestureDetector(
                     onTap: () {},
-                    child: const Icon(
+                    child: Icon(
                       Icons.settings_outlined,
-                      color: Colors.white,
+                      color: LightColors().primary,
                       size: 32,
                     ),
                   ),
@@ -105,7 +92,7 @@ class DrawerHome extends StatelessWidget {
           /// Drawer Options
           ///
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
               children: [
                 //
